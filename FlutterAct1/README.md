@@ -4,7 +4,7 @@ This Flutter app simulates the roll of two dice. Whenever you tap on a dice, bot
 
 ## Screenshot
 
-(Insert a screenshot of the app here)
+![screenshot](https://github.com/jgzalez/FlutterExercises/blob/master/FlutterAct1/image/sc.png)
 
 ## Features
 
