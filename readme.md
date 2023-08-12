@@ -7,8 +7,7 @@ Este repositorio contiene una colección de ejercicios realizados en el marco de
 - [Sobre el Curso](#sobre-el-curso)
 - [Ejercicios](#ejercicios)
 - [Cómo usar](#cómo-usar)
-- [Contribuciones](#contribuciones)
-- [Licencia](#licencia)
+
 
 ## Sobre el Curso
 
