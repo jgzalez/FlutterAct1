@@ -2,7 +2,7 @@
 
 This is a Flutter app showcasing a user's profile with an avatar, name, profession, and contact details.
 
-## App Description
+## Description
 
 The main screen presents a centered profile view:
 - A circular avatar
@@ -35,7 +35,7 @@ The main screen presents a centered profile view:
 
 ## Screenshots
 
-(You can include screenshots of your app here)
+(Screenshot)[https://github.com/jgzalez/FlutterAct1/blob/master/FlutterAct2/assets/images/sc.jpeg]
 
 ## Installation & Setup
 
