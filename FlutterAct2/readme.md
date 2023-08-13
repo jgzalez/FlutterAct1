@@ -35,7 +35,7 @@ The main screen presents a centered profile view:
 
 ## Screenshots
 
-(Screenshot)[https://github.com/jgzalez/FlutterAct1/blob/master/FlutterAct2/assets/images/sc.jpeg]
+[Screenshot](https://github.com/jgzalez/FlutterAct1/blob/master/FlutterAct2/assets/images/sc.jpeg)
 
 ## Installation & Setup
 
