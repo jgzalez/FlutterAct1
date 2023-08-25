@@ -1,18 +1,29 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'question.dart';
 
 void main() => runApp(const MyApp());
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  _MyAppState createState() => _MyAppState();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Material App',
+      home: QuizPage(),
+    );
+  }
 }
 
-class _MyAppState extends State<MyApp> {
+class QuizPage extends StatefulWidget {
+  @override
+  _QuizPageState createState() => _QuizPageState();
+}
+
+class _QuizPageState extends State<QuizPage> {
   // Lista para almacenar las preguntas
   List<Question> questions = [];
   // Índice de la pregunta actual
@@ -24,6 +35,42 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     _loadQuestions();
+  }
+
+  void showTestDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Test Dialog'),
+          content: Text('This is a test dialog.'),
+        );
+      },
+    );
+  }
+
+  void _showEndDialog(BuildContext context) {
+    Alert(
+      context: context,
+      title: 'Quiz Finished',
+      desc: 'You have completed the quiz!',
+      buttons: [
+        DialogButton(
+          child: Text(
+            'Restart',
+            style: TextStyle(color: Colors.white, fontSize: 20),
+          ),
+          onPressed: () {
+            setState(() {
+              currentQuestionIndex = 0;
+              answerIcons.clear();
+            });
+            Navigator.pop(context);
+          },
+          width: 120,
+        ),
+      ],
+    ).show();
   }
 
   // Función para cargar las preguntas desde el archivo questions.txt
@@ -57,72 +104,70 @@ class _MyAppState extends State<MyApp> {
       if (currentQuestionIndex < questions.length - 1) {
         currentQuestionIndex++;
       } else {
-        currentQuestionIndex = 0;
-        answerIcons.clear();
+        _showEndDialog(context);
       }
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Material App',
-      home: Scaffold(
-        backgroundColor: Colors.black,
-        appBar: AppBar(
-          title: const Text('Trivia Quiz'),
-        ),
-        body: Center(
-          child: Column(
-            children: [
-              Expanded(
-                child: Center(
-                  child: Text(
-                    questions[currentQuestionIndex].question,
-                    style: TextStyle(color: Colors.white),
-                  ),
+    return Scaffold(
+      
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        
+        title: Center(child: const Text('Trivia Quiz')),
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            Expanded(
+              child: Center(
+                child: Text(
+                  questions[currentQuestionIndex].question,
+                  style: TextStyle(color: Colors.white),
                 ),
               ),
-              // Botón para respuesta "True"
-              SizedBox(
-                height: 60,
-                width: 300,
-                child: Card(
-                  color: Colors.green,
-                  child: ListTile(
-                    title: Center(
-                      child: Text(
-                        "True",
-                        style: TextStyle(),
-                      ),
+            ),
+            // Botón para respuesta "True"
+            SizedBox(
+              height: 60,
+              width: 300,
+              child: Card(
+                color: Colors.green,
+                child: ListTile(
+                  title: Center(
+                    child: Text(
+                      "True",
+                      style: TextStyle(),
                     ),
-                    onTap: () => checkAnswer(true),
                   ),
+                  onTap: () => checkAnswer(true),
                 ),
               ),
-              // Botón para respuesta "False"
-              SizedBox(
-                height: 60,
-                width: 300,
-                child: Card(
-                  color: Colors.red,
-                  child: ListTile(
-                    title: Center(
-                      child: Text(
-                        "False",
-                        style: TextStyle(),
-                      ),
+            ),
+            // Botón para respuesta "False"
+            SizedBox(
+              height: 60,
+              width: 300,
+              child: Card(
+                color: Colors.red,
+                child: ListTile(
+                  title: Center(
+                    child: Text(
+                      "False",
+                      style: TextStyle(),
                     ),
-                    onTap: () => checkAnswer(false),
                   ),
+                  onTap: () => checkAnswer(false),
                 ),
               ),
-              // Fila para mostrar los íconos de respuestas
-              Row(
-                children: answerIcons,
-              ),
-            ],
-          ),
+            ),
+            // Fila para mostrar los íconos de respuestas
+            Row(
+              children: answerIcons,
+            ),
+          ],
         ),
       ),
     );
