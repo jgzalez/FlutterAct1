@@ -1,0 +1,105 @@
+{
+   "response_code":0,
+   "results":[
+      {
+         "category":"General Knowledge",
+         "type":"boolean",
+         "difficulty":"easy",
+         "question":"The Great Wall of China is visible from the moon.",
+         "correct_answer":"False",
+         "incorrect_answers":[
+            "True"
+         ]
+      },
+      {
+         "category":"General Knowledge",
+         "type":"boolean",
+         "difficulty":"medium",
+         "question":"The US emergency hotline is 911 because of the September 11th terrorist attacks.",
+         "correct_answer":"False",
+         "incorrect_answers":[
+            "True"
+         ]
+      },
+      {
+         "category":"General Knowledge",
+         "type":"boolean",
+         "difficulty":"easy",
+         "question":"French is an official language in Canada.",
+         "correct_answer":"True",
+         "incorrect_answers":[
+            "False"
+         ]
+      },
+      {
+         "category":"General Knowledge",
+         "type":"boolean",
+         "difficulty":"easy",
+         "question":"Nutella is produced by the German company Ferrero.",
+         "correct_answer":"False",
+         "incorrect_answers":[
+            "True"
+         ]
+      },
+      {
+         "category":"General Knowledge",
+         "type":"boolean",
+         "difficulty":"medium",
+         "question":"Cucumbers are usually more than 90% water.",
+         "correct_answer":"True",
+         "incorrect_answers":[
+            "False"
+         ]
+      },
+      {
+         "category":"General Knowledge",
+         "type":"boolean",
+         "difficulty":"medium",
+         "question":"The term &quot;Spam&quot; came before the food product &quot;Spam&quot;.",
+         "correct_answer":"False",
+         "incorrect_answers":[
+            "True"
+         ]
+      },
+      {
+         "category":"General Knowledge",
+         "type":"boolean",
+         "difficulty":"medium",
+         "question":"The French word to travel is &quot;Travail&quot;",
+         "correct_answer":"False",
+         "incorrect_answers":[
+            "True"
+         ]
+      },
+      {
+         "category":"General Knowledge",
+         "type":"boolean",
+         "difficulty":"medium",
+         "question":"&quot;Santa Claus&quot; is a variety of melon.",
+         "correct_answer":"True",
+         "incorrect_answers":[
+            "False"
+         ]
+      },
+      {
+         "category":"General Knowledge",
+         "type":"boolean",
+         "difficulty":"medium",
+         "question":"Haggis is traditionally ate on Burns Night.",
+         "correct_answer":"True",
+         "incorrect_answers":[
+            "False"
+         ]
+      },
+      {
+         "category":"General Knowledge",
+         "type":"boolean",
+         "difficulty":"medium",
+         "question":"&quot;Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo.&quot; is a grammatically correct sentence.",
+         "correct_answer":"True",
+         "incorrect_answers":[
+            "False"
+         ]
+      }
+   ]
+}
