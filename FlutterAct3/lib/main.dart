@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'question.dart';
-import 'package:rflutter_alert/rflutter_alert.dart'
 
 void main() => runApp(const MyApp());
 
