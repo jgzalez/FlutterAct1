@@ -1,0 +1,303 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(BMICalculator());
+
+class BMICalculator extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData.dark().copyWith(
+        primaryColor: Colors.grey[900],
+        scaffoldBackgroundColor: Colors.grey[850],
+      ),
+      home: InputPage(),
+    );
+  }
+}
+
+class InputPage extends StatefulWidget {
+  @override
+  _InputPageState createState() => _InputPageState();
+}
+
+enum Gender { male, female }
+
+class _InputPageState extends State<InputPage> {
+  // Define the BMI calculation method
+  double calculateBMI(int weight, int height) {
+    return weight / (height / 100 * height / 100);
+  }
+
+// Define a method to get the message based on BMI
+  String getBMIMessage(double bmi) {
+    if (bmi < 18.5) {
+      return "You're underweight!";
+    } else if (bmi >= 18.5 && bmi < 24.9) {
+      return "You have a normal weight!";
+    } else if (bmi >= 25 && bmi < 29.9) {
+      return "You're overweight!";
+    } else {
+      return "You're obese!";
+    }
+  }
+
+  int height = 150;
+  int age = 18;
+  int weight = 60; // 1. Define a state variable for the weight
+  Gender? selectedGender;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('BMI Calculator')),
+      body: Column(
+        children: [
+          Expanded(
+            child: Row(
+              children: [
+                // Female Card
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedGender = Gender.female;
+                      });
+                    },
+                    child: Card(
+                      color: selectedGender == Gender.female
+                          ? Colors.pink
+                          : Colors.grey[500],
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(Icons.female,
+                              size: 72, // 3 times the default size
+                              color: Colors.white),
+                          Text('Female'),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+
+                // Male Card
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        selectedGender = Gender.male;
+                      });
+                    },
+                    child: Card(
+                      color: selectedGender == Gender.male
+                          ? Colors.blue
+                          : Colors.grey[500],
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.male,
+                            size: 72, // Increase the size
+                            color: Colors
+                                .white, // set color to white for better contrast
+                          ),
+                          Text('Male'),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          // Height Slider Card
+          Expanded(
+            child: Card(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('HEIGHT'),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        '$height',
+                        style: TextStyle(fontSize: 40),
+                      ),
+                      Text(
+                        'cm',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ],
+                  ),
+                  Slider(
+                    value: height.toDouble(),
+                    min: 100.0,
+                    max: 220.0,
+                    onChanged: (double newValue) {
+                      setState(() {
+                        height = newValue.round();
+                      });
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Expanded(
+            child: Row(
+              children: [
+                // Weight Card
+                Expanded(
+                  child: Card(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('WEIGHT', style: TextStyle(fontSize: 20))
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('$weight', style: TextStyle(fontSize: 40)),
+                            SizedBox(
+                                width: 5), // A little space between the text
+                            Text(
+                              'kg', // Typically, weight would be in kilograms, not cm
+                              style: TextStyle(fontSize: 20),
+                            )
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            FloatingActionButton(
+                              onPressed: () {
+                                setState(() {
+                                  weight--;
+                                });
+                              },
+                              child: Icon(Icons.remove),
+                              heroTag: "decrementWeight", // unique heroTag
+                            ),
+                            SizedBox(
+                                width: 10), // Some spacing between the buttons
+                            FloatingActionButton(
+                              onPressed: () {
+                                setState(() {
+                                  weight++;
+                                });
+                              },
+                              child: Icon(Icons.add),
+                              heroTag: "incrementWeight", // unique heroTag
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+
+                // Age Card
+                Expanded(
+                  child: Card(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('Age', style: TextStyle(fontSize: 20))
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('$age', style: TextStyle(fontSize: 40)),
+                            SizedBox(
+                                width: 5), // A little space between the text
+                            Text(
+                              'yrs', // Typically, weight would be in kilograms, not cm
+                              style: TextStyle(fontSize: 20),
+                            )
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            FloatingActionButton(
+                              onPressed: () {
+                                setState(() {
+                                  age--;
+                                });
+                              },
+                              child: Icon(Icons.remove),
+                            ),
+                            SizedBox(width: 10),
+                            FloatingActionButton(
+                              onPressed: () {
+                                setState(() {
+                                  age++;
+                                });
+                              },
+                              child: Icon(Icons.add),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          // Button to Calculate
+          // When Calculate button is pressed
+          ElevatedButton(
+            onPressed: () {
+              double bmiValue = calculateBMI(weight, height);
+              String bmiMessage = getBMIMessage(bmiValue);
+
+              // Pass these values to your ResultsPage
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultsPage(
+                      bmiValue: bmiValue, recommendation: bmiMessage),
+                ),
+              );
+            },
+            child: Text('CALCULATE'),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ResultsPage extends StatelessWidget {
+  final double bmiValue;
+  final String recommendation;
+
+  ResultsPage({required this.bmiValue, required this.recommendation});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('BMI Results')),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('BMI: ${bmiValue.toStringAsFixed(1)}',
+                style: TextStyle(fontSize: 40)),
+            Text(recommendation, style: TextStyle(fontSize: 20)),
+          ],
+        ),
+      ),
+    );
+  }
+}
