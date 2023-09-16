@@ -1,40 +1,39 @@
-# Weather App - Flutter
 
-### Description:
+# Aplicación del clima - Flutter
+
+### Descripción:
 ------------
-A simple Flutter-based weather application that provides real-time weather updates based on the user's current location or a city the user searches for. The app uses OpenWeatherMap API for weather data retrieval.
+Una sencilla aplicación basada en Flutter que proporciona actualizaciones meteorológicas en tiempo real basadas en la ubicación actual del usuario o una ciudad que el usuario busque. La aplicación utiliza la API de OpenWeatherMap para la recuperación de datos meteorológicos.
 
-### Features:
+### Características:
 ---------
-1. Fetches and displays weather data for the user's current location using IP.
-2. Allows users to search for weather data by city.
-3. Provides an option to refresh the weather data for the current location.
-4. Displays the temperature in Celsius and a relevant emoji based on the weather condition.
+1. Obtiene y muestra datos meteorológicos de la ubicación actual del usuario mediante IP.
+2. Permite a los usuarios buscar datos meteorológicos por ciudad.
+3. Proporciona una opción para actualizar los datos meteorológicos de la ubicación actual.
+4. Muestra la temperatura en grados Celsius y un emoji relevante según la condición meteorológica.
 
-### Usage:
+### Uso:
 ------
-1. Launch the application.
-2. The app will load and fetch the weather data for your current location.
-3. The main page displays the city's name, current temperature, and an emoji representing the weather.
-4. Use the refresh button in the top-left corner to refresh the weather data for the current location.
-5. Use the search button in the top-right corner to navigate to the search page. Enter a city's name and press the search button to fetch and view the weather data for the chosen city.
+1. Lanza la aplicación.
+2. La aplicación se cargará y obtendrá los datos meteorológicos de tu ubicación actual.
+3. La página principal muestra el nombre de la ciudad, la temperatura actual y un emoji que representa el clima.
+4. Usa el botón de actualizar en la esquina superior izquierda para refrescar los datos meteorológicos de la ubicación actual.
+5. Usa el botón de búsqueda en la esquina superior derecha para navegar a la página de búsqueda. Ingresa el nombre de una ciudad y presiona el botón de búsqueda para obtener y ver los datos meteorológicos de la ciudad elegida.
 
-### Dependencies:
+### Dependencias:
 -------------
-- Flutter SDK
-- http package for API calls
-- flutter_spinkit for the loading animation
+- SDK de Flutter
+- Paquete http para llamadas API
+- flutter_spinkit para la animación de carga
 
-### APIs Used:
+### APIs utilizadas:
 ----------
-- OpenWeatherMap for weather data
-- IPinfo.io for fetching the current city based on IP
+- OpenWeatherMap para datos meteorológicos
+- IPinfo.io para obtener la ciudad actual basada en IP
 
-### Setup:
+### Configuración:
 ------
-1. Clone the repository.
-2. Navigate to the project directory and run `flutter pub get`.
-3. Ensure you have set up an emulator or have a physical device connected.
-4. Run `flutter run` to launch the application.
-
-
+1. Clona el repositorio.
+2. Navega al directorio del proyecto y ejecuta `flutter pub get`.
+3. Asegúrate de haber configurado un emulador o de tener un dispositivo físico conectado.
+4. Ejecuta `flutter run` para lanzar la aplicación.
