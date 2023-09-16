@@ -2,9 +2,6 @@
 
 Esta calculadora de BMI (Índice de Masa Corporal) es una aplicación Flutter que permite a los usuarios determinar su BMI ingresando su peso, altura, edad y género.
 
-![Captura de pantalla de la App](path_to_screenshot.png) 
-*(Reemplaza `path_to_screenshot.png` con la ruta a una captura de pantalla de tu app, si tienes una.)*
-
 ## Características
 
 - Interfaz intuitiva para seleccionar el género, ajustar el peso, la altura y la edad.
